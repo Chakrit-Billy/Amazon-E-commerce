@@ -4,31 +4,42 @@ import "./styles/shared/general.css";
 import { Products } from "../data/products";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useCart } from "./CartContext";
 
 function Amazon() {
-  const [cartItems, setCartItems] = useState([]);
+  const { cartItems, setCartItems } = useCart();
   const [cartQuantity, setCartQuantity] = useState(0);
   const [selectedQuantity, setSelectedQuantity] = useState(1);
 
-  const handleAddToCart = (productId) => {
+  const handleAddToCart = (
+    productId,
+    productName,
+    productImage,
+    productPrice
+  ) => {
     const existingItemIndex = cartItems.findIndex(
       (item) => item.productId === productId
     );
 
     if (existingItemIndex !== -1) {
-      // If the item already exists in the cart, increase its quantity
       const updatedCart = cartItems.map((item, index) => {
         if (index === existingItemIndex) {
           return { ...item, quantity: item.quantity + selectedQuantity };
         }
         return item;
       });
-      setCartItems(updatedCart);
+      setCartItems(updatedCart); // Use setCartItems to update the cart
     } else {
-      // If the item doesn't exist in the cart, add it as a new item
+      // Similar to your existing logic, add a new item
       setCartItems((prevCartItems) => [
         ...prevCartItems,
-        { productId, quantity: selectedQuantity },
+        {
+          productId,
+          quantity: selectedQuantity,
+          productName,
+          productImage,
+          productPrice,
+        },
       ]);
     }
   };
@@ -142,7 +153,12 @@ function Amazon() {
                     <button
                       className='add-to-cart-button button-primary'
                       onClick={() => {
-                        handleAddToCart(product.id); // Pass selectedQuantity here
+                        handleAddToCart(
+                          product.id,
+                          product.name,
+                          `src/${product.image}`,
+                          (product.priceCents / 100).toFixed(2)
+                        ); // Pass selectedQuantity here
                         setSelectedQuantity(1); // Reset selected quantity after adding to cart// Pass selectedQuantity here
                       }}>
                       Add to Cart
