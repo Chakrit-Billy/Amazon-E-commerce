@@ -12,7 +12,7 @@ export function Orders() {
     month: "long",
     day: "numeric",
   });
-
+  console.log(orders);
   return (
     <>
       <div className='amazon-header'>
@@ -114,11 +114,11 @@ export function Orders() {
                       </button>
                     </div>
                     <div className='product-actions'>
-                      <a href='tracking.html'>
+                      <Link to={`/tracking/${i}`}>
                         <button className='track-package-button button-secondary'>
                           Track package
                         </button>
-                      </a>
+                      </Link>
                     </div>
                   </>
                 ))}
