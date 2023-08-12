@@ -1,13 +1,17 @@
 import "./styles/shared/general.css";
 import "./styles/pages/checkout/checkout-header.css";
 import "./styles/pages/checkout/checkout.css";
-import { datefunc } from "./datefunc";
+import { useDateContext } from "./DateProvider.jsx";
 import { Link } from "react-router-dom";
 import { useCart } from "./CartContext";
 import { useNavigate } from "react-router-dom";
 
 export function CheckoutPage() {
   const navigate = useNavigate();
+  const { dateFunc } = useDateContext();
+  const dateString1 = dateFunc(1);
+  const dateString2 = dateFunc(2);
+  const dateString3 = dateFunc(3);
   let {
     cartItems,
     setCartItems,
@@ -128,12 +132,12 @@ export function CheckoutPage() {
                             checked
                             className='delivery-option-input'
                             name='delivery-option-1'
-                            value={datefunc(1)}
+                            value={dateString1}
                             onClick={(e) => handleQuantityChange(e)}
                           />
                           <div>
                             <div className='delivery-option-date'>
-                              {datefunc(1).split(" - ")[0]}
+                              {dateString1.split(" - ")[0]}
                             </div>
                             <div className='delivery-option-price'>
                               FREE Shipping
@@ -145,12 +149,12 @@ export function CheckoutPage() {
                             type='radio'
                             className='delivery-option-input'
                             name='delivery-option-1'
-                            value={datefunc(2)}
+                            value={dateString2}
                             onClick={(e) => handleQuantityChange(e)}
                           />
                           <div>
                             <div className='delivery-option-date'>
-                              {datefunc(2).split(" - ")[0]}
+                              {dateString2.split(" - ")[0]}
                             </div>
                             <div className='delivery-option-price'>
                               $4.99 - Shipping
@@ -162,12 +166,12 @@ export function CheckoutPage() {
                             type='radio'
                             className='delivery-option-input'
                             name='delivery-option-1'
-                            value={datefunc(3)}
+                            value={dateString3}
                             onClick={(e) => handleQuantityChange(e)}
                           />
                           <div>
                             <div className='delivery-option-date'>
-                              {datefunc(3).split(" - ")[0]}
+                              {dateString3.split(" - ")[0]}
                             </div>
                             <div className='delivery-option-price'>
                               $9.99 - Shipping

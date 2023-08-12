@@ -1,13 +1,15 @@
 import { createContext, useContext, useState } from "react";
 import PropTypes from "prop-types"; // Import PropTypes
-
+import { useDateContext } from "./DateProvider.jsx";
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
+  const { dateFunc } = useDateContext();
+  const dateString1 = dateFunc(1);
   const [cartItems, setCartItems] = useState([]);
-  const [selectedQuantity, setSelectedQuantity] = useState([
-    "Tuesday, June 21",
-  ]);
+  const [selectedQuantity, setSelectedQuantity] = useState(
+    dateString1.split(" - ")[0]
+  );
   const [shipPing, setShipPing] = useState(["FREE Shipping"]);
   return (
     <CartContext.Provider
