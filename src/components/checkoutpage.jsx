@@ -1,6 +1,7 @@
 import "./styles/shared/general.css";
 import "./styles/pages/checkout/checkout-header.css";
 import "./styles/pages/checkout/checkout.css";
+import { datefunc } from "./datefunc";
 import { Link } from "react-router-dom";
 import { useCart } from "./CartContext";
 import { useNavigate } from "react-router-dom";
@@ -26,9 +27,11 @@ export function CheckoutPage() {
     (total, item) => total + item.productPrice * item.quantity,
     0
   );
+
   const shippingPrice = !isNaN(shipPing) ? Number(shipPing) : 0;
   const totalItemsPriceTax = totalItemsPrice + shippingPrice;
   const total = totalItemsPriceTax + totalItemsPriceTax / 10;
+
   return (
     <div>
       <div className='checkout-header'>
@@ -51,7 +54,8 @@ export function CheckoutPage() {
           <div className='checkout-header-middle-section'>
             Checkout (
             <a className='return-to-home-link' href='amazon.html'>
-              3 items
+              {cartItems.reduce((total, item) => total + item.quantity, 0)}{" "}
+              items
             </a>
             )
           </div>
@@ -124,12 +128,12 @@ export function CheckoutPage() {
                             checked
                             className='delivery-option-input'
                             name='delivery-option-1'
-                            value='Tuesday, June 21 - FREE Shipping'
+                            value={datefunc(1)}
                             onClick={(e) => handleQuantityChange(e)}
                           />
                           <div>
                             <div className='delivery-option-date'>
-                              Tuesday, June 21
+                              {datefunc(1).split(" - ")[0]}
                             </div>
                             <div className='delivery-option-price'>
                               FREE Shipping
@@ -141,12 +145,12 @@ export function CheckoutPage() {
                             type='radio'
                             className='delivery-option-input'
                             name='delivery-option-1'
-                            value='Wednesday, June 15 - 4.99 '
+                            value={datefunc(2)}
                             onClick={(e) => handleQuantityChange(e)}
                           />
                           <div>
                             <div className='delivery-option-date'>
-                              Wednesday, June 15
+                              {datefunc(2).split(" - ")[0]}
                             </div>
                             <div className='delivery-option-price'>
                               $4.99 - Shipping
@@ -158,12 +162,12 @@ export function CheckoutPage() {
                             type='radio'
                             className='delivery-option-input'
                             name='delivery-option-1'
-                            value='Monday, June 13 - 9.99'
+                            value={datefunc(3)}
                             onClick={(e) => handleQuantityChange(e)}
                           />
                           <div>
                             <div className='delivery-option-date'>
-                              Monday, June 13
+                              {datefunc(3).split(" - ")[0]}
                             </div>
                             <div className='delivery-option-price'>
                               $9.99 - Shipping
