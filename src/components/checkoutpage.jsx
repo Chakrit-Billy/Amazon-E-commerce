@@ -16,14 +16,18 @@ export function CheckoutPage() {
     cartItems,
     setCartItems,
     selectedQuantity,
-    setSelectedQuantity,
     shipPing,
     setShipPing,
+    date,
+    setDate,
+    setCartQuantity,
+    orders,
+    setOrders,
   } = useCart();
   const handleQuantityChange = (event) => {
     const value = event.target.value;
-    const [date, price] = value.split(" - ");
-    setSelectedQuantity(date);
+    const [date1, price] = value.split(" - ");
+    setDate(date1);
     setShipPing(price);
   };
 
@@ -83,9 +87,7 @@ export function CheckoutPage() {
               return (
                 <>
                   <div className='cart-item-container' key={i}>
-                    <div className='delivery-date'>
-                      Delivery date: {selectedQuantity}
-                    </div>
+                    <div className='delivery-date'>Delivery date: {date}</div>
                     <div className='cart-item-details-grid'>
                       <img
                         className='product-image'
@@ -223,7 +225,23 @@ export function CheckoutPage() {
               <div className='payment-summary-money'>${total.toFixed(2)}</div>
             </div>
 
-            <button className='place-order-button button-primary'>
+            <button
+              className='place-order-button button-primary'
+              onClick={() => {
+                const newOrder = {
+                  cartItems,
+                  shippingPrice,
+                  totalItemsPrice,
+                  totalItemsPriceTax,
+                  total,
+                  date,
+                };
+
+                setOrders([...orders, newOrder]); // Add the new order to the orders array
+                setCartItems([]); // Clear the cartItems
+                setCartQuantity(0);
+                navigate("/orders");
+              }}>
               Place your order
             </button>
           </div>

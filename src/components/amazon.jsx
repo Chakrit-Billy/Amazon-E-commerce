@@ -8,7 +8,7 @@ import { useCart } from "./CartContext";
 
 function Amazon() {
   const { cartItems, setCartItems } = useCart();
-  const [cartQuantity, setCartQuantity] = useState(0);
+  const { cartQuantity, setCartQuantity } = useCart();
   const [selectedQuantity, setSelectedQuantity] = useState(1);
 
   const handleAddToCart = (
@@ -83,7 +83,7 @@ function Amazon() {
         </div>
 
         <div className='amazon-header-right-section'>
-          <Link className='orders-link header-link' to='/order'>
+          <Link className='orders-link header-link' to='/orders'>
             <span className='returns-text'>Returns</span>
             <span className='orders-text'>& Orders</span>
           </Link>

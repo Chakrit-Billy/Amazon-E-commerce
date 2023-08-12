@@ -7,10 +7,11 @@ export const CartProvider = ({ children }) => {
   const { dateFunc } = useDateContext();
   const dateString1 = dateFunc(1);
   const [cartItems, setCartItems] = useState([]);
-  const [selectedQuantity, setSelectedQuantity] = useState(
-    dateString1.split(" - ")[0]
-  );
+  const [selectedQuantity, setSelectedQuantity] = useState();
   const [shipPing, setShipPing] = useState(["FREE Shipping"]);
+  const [date, setDate] = useState(dateString1.split(" - ")[0]);
+  const [cartQuantity, setCartQuantity] = useState(0);
+  const [orders, setOrders] = useState([]);
   return (
     <CartContext.Provider
       value={{
@@ -20,6 +21,12 @@ export const CartProvider = ({ children }) => {
         setSelectedQuantity,
         shipPing,
         setShipPing,
+        date,
+        setDate,
+        cartQuantity,
+        setCartQuantity,
+        orders,
+        setOrders,
       }}>
       {children}
     </CartContext.Provider>
