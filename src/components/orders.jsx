@@ -20,7 +20,7 @@ export function Orders() {
           <Link to='/' className='header-link'>
             <img
               className='amazon-logo'
-              src='./src/images/amazon-logo-white.png'
+              src={"public/images/amazon-logo-white.png"}
               alt='Amazon Logo'
             />
             <img
