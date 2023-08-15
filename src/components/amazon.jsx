@@ -59,12 +59,12 @@ function Amazon() {
           <Link to='/' className='header-link'>
             <img
               className='amazon-logo'
-              src={"public/images/amazon-logo-white.png"}
+              src={"/public/images/amazon-logo-white.png"}
               alt='Amazon Logo'
             />
             <img
               className='amazon-mobile-logo'
-              src='src/images/amazon-mobile-logo-white.png'
+              src='public/images/amazon-mobile-logo.png'
               alt='Amazon Mobile Logo'
             />
           </Link>
