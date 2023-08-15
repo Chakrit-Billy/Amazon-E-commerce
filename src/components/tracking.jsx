@@ -1,12 +1,11 @@
 import "./styles/shared/general.css";
 import "./styles/shared/amazon-header.css";
 import "./styles/pages/tracking.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useCart } from "./CartContext";
 import { useParams } from "react-router-dom";
 
 export function Tracking() {
-  const navigate = useNavigate();
   const { orderId } = useParams();
   const { cartQuantity, orders } = useCart();
 
