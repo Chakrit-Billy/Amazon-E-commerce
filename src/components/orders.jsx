@@ -20,12 +20,12 @@ export function Orders() {
           <Link to='/' className='header-link'>
             <img
               className='amazon-logo'
-              src='public/images/amazon-logo-white.png'
+              src='/images/amazon-logo-white.png'
               alt='Amazon Logo'
             />
             <img
               className='amazon-mobile-logo'
-              src='src/images/amazon-mobile-logo-white.png'
+              src='/images/amazon-mobile-logo-white.png'
               alt='Amazon Mobile Logo'
             />
           </Link>
@@ -37,7 +37,7 @@ export function Orders() {
           <button className='search-button'>
             <img
               className='search-icon'
-              src='src/images/icons/search-icon.png'
+              src='/images/icons/search-icon.png'
               alt='Search Icon'
             />
           </button>
@@ -52,7 +52,7 @@ export function Orders() {
           <Link className='cart-link header-link' to='/checkout'>
             <img
               className='cart-icon'
-              src='src/images/icons/cart-icon.png'
+              src='/images/icons/cart-icon.png'
               alt='Cart Icon'
             />
             <div className='cart-quantity'>{cartQuantity}</div>
@@ -99,7 +99,7 @@ export function Orders() {
                       <button className='buy-again-button button-primary'>
                         <img
                           className='buy-again-icon'
-                          src='src/images/icons/buy-again.png'
+                          src='/images/icons/buy-again.png'
                           alt='Buy Again Icon'
                         />
                         <span

@@ -48,12 +48,12 @@ export function CheckoutPage() {
             <Link to='/'>
               <img
                 className='amazon-logo'
-                src='src/images/amazon-logo.png'
+                src='/images/amazon-logo.png'
                 alt='Amazon Logo'
               />
               <img
                 className='amazon-mobile-logo'
-                src='src/images/amazon-logo-white.png'
+                src='/images/amazon-logo-white.png'
                 alt='Amazon Mobile Logo'
               />
             </Link>
@@ -70,7 +70,7 @@ export function CheckoutPage() {
 
           <div className='checkout-header-right-section'>
             <img
-              src='src/images/icons/checkout-lock-icon.png'
+              src='/images/icons/checkout-lock-icon.png'
               alt='Checkout Lock Icon'
             />
           </div>

@@ -64,7 +64,7 @@ function Amazon() {
             />
             <img
               className='amazon-mobile-logo'
-              src='public/images/amazon-mobile-logo.png'
+              src={"/images/amazon-mobile-logo.png"}
               alt='Amazon Mobile Logo'
             />
           </Link>
@@ -76,7 +76,7 @@ function Amazon() {
           <button className='search-button'>
             <img
               className='search-icon'
-              src='src/images/icons/search-icon.png'
+              src={"/images/icons/search-icon.png"}
               alt='Search Icon'
             />
           </button>
@@ -91,7 +91,7 @@ function Amazon() {
           <Link className='cart-link header-link' to='/checkout'>
             <img
               className='cart-icon'
-              src='src/images/icons/cart-icon.png'
+              src={"/images/icons/cart-icon.png"}
               alt='Cart Icon'
             />
             <div className='cart-quantity'>{cartQuantity}</div>
@@ -103,9 +103,9 @@ function Amazon() {
       <div className='main'>
         <div className='products-grid'>
           {Products.map((product, index) => {
-            let img = `src/${product.image}`;
+            let img = `/${product.image}`;
             let s = product.rating.stars * 10;
-            let star = `src/images/ratings/rating-${s}.png`;
+            let star = `/images/ratings/rating-${s}.png`;
             let price = product.priceCents / 100;
             return (
               <>
@@ -156,7 +156,7 @@ function Amazon() {
                         handleAddToCart(
                           product.id,
                           product.name,
-                          `src/${product.image}`,
+                          `/${product.image}`,
                           (product.priceCents / 100).toFixed(2)
                         ); // Pass selectedQuantity here
                         setSelectedQuantity(1); // Reset selected quantity after adding to cart// Pass selectedQuantity here

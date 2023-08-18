@@ -23,12 +23,12 @@ export function Tracking() {
           <Link to='/' className='header-link'>
             <img
               className='amazon-logo'
-              src='/src/images/amazon-logo-white.png'
+              src='/images/amazon-logo-white.png'
               alt='Amazon Logo'
             />
             <img
               className='amazon-mobile-logo'
-              src='/src/images/amazon-mobile-logo-white.png'
+              src='/images/amazon-mobile-logo-white.png'
               alt='Amazon Mobile Logo'
             />
           </Link>
@@ -40,7 +40,7 @@ export function Tracking() {
           <button className='search-button'>
             <img
               className='search-icon'
-              src='/src/images/icons/search-icon.png'
+              src='/images/icons/search-icon.png'
               alt='Search Icon'
             />
           </button>
@@ -55,7 +55,7 @@ export function Tracking() {
           <Link className='cart-link header-link' to='/checkout'>
             <img
               className='cart-icon'
-              src='/src/images/icons/cart-icon.png'
+              src='/images/icons/cart-icon.png'
               alt='Cart Icon'
             />
             <div className='cart-quantity'>{cartQuantity}</div>
@@ -77,7 +77,7 @@ export function Tracking() {
                 <div className='product-info'>Quantity: {order.quantity}</div>
                 <img
                   className='product-image'
-                  src={"/" + order.productImage}
+                  src={order.productImage}
                   alt='Product Image'
                 />
               </div>
