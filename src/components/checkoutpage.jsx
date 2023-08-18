@@ -228,19 +228,20 @@ export function CheckoutPage() {
             <button
               className='place-order-button button-primary'
               onClick={() => {
-                const newOrder = {
-                  cartItems,
-                  shippingPrice,
-                  totalItemsPrice,
-                  totalItemsPriceTax,
-                  total,
-                  date,
-                };
-
-                setOrders([...orders, newOrder]); // Add the new order to the orders array
-                setCartItems([]); // Clear the cartItems
-                setCartQuantity(0);
-                navigate("/orders");
+                if (cartItems.length > 0) {
+                  const newOrder = {
+                    cartItems,
+                    shippingPrice,
+                    totalItemsPrice,
+                    totalItemsPriceTax,
+                    total,
+                    date,
+                  };
+                  setOrders([...orders, newOrder]);
+                  setCartItems([]);
+                  setCartQuantity(0);
+                  navigate("/orders");
+                }
               }}>
               Place your order
             </button>
